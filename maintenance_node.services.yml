@@ -1,0 +1,5 @@
+services:
+  maintenance_node.route_subscriber:
+    class: Drupal\maintenance_node\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

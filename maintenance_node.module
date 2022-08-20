@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Maintenance Node module.
+ */
+
+
+function maintenance_node_preprocess_maintenance_page(&$variables) {
+
+  $maintenance_node_id = \Drupal::config('system.maintenance')->get('maintenance_node');
+}

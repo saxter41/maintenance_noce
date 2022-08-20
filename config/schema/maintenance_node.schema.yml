@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Maintenance Node module.
+system.maintenance:
+  type: config_object
+  label: 'Maintenance Node settings'
+  mapping:
+    maintenance_node:
+      type: string
+      label: 'Maintenance node'
