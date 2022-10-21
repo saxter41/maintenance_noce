@@ -17,7 +17,8 @@ class MaintenanceNodeForm extends SiteMaintenanceModeForm {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $maintenance_node_id = $this->config('system.maintenance')->get('maintenance_node');
     $this->entityTypeManager = \Drupal::entityTypeManager();
-    $maintenance_node = $maintenance_node_id ? $this->entityTypeManager->getStorage('node')->load($maintenance_node_id) : '';
+    $maintenance_node = $maintenance_node_id ?
+      $this->entityTypeManager->getStorage('node')->load($maintenance_node_id) : '';
 
 
     $form['maintenance_node'] = [
