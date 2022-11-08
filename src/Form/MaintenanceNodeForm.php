@@ -14,8 +14,18 @@ class MaintenanceNodeForm extends SiteMaintenanceModeForm {
   /**
    * {@inheritdoc}
    */
+  protected function getEditableConfigNames() {
+    return [
+      'maintenance.node',
+      'system.maintenance'
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $maintenance_node_id = $this->config('system.maintenance')->get('maintenance_node');
+    $maintenance_node_id = $this->config('maintenance.node')->get('maintenance_node');
     $this->entityTypeManager = \Drupal::entityTypeManager();
     $maintenance_node = $maintenance_node_id ?
       $this->entityTypeManager->getStorage('node')->load($maintenance_node_id) : '';
@@ -43,7 +53,7 @@ class MaintenanceNodeForm extends SiteMaintenanceModeForm {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('system.maintenance')
+    $this->config('maintenance.node')
       ->set('maintenance_node', $form_state->getValue('maintenance_node'))
       ->save();
     parent::submitForm($form, $form_state);
