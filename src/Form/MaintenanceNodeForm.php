@@ -2,7 +2,6 @@
 
 namespace Drupal\maintenance_node\Form;
 
-use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\system\Form\SiteMaintenanceModeForm;
 
@@ -17,7 +16,7 @@ class MaintenanceNodeForm extends SiteMaintenanceModeForm {
   protected function getEditableConfigNames() {
     return [
       'maintenance.node',
-      'system.maintenance'
+      'system.maintenance',
     ];
   }
 
@@ -29,7 +28,6 @@ class MaintenanceNodeForm extends SiteMaintenanceModeForm {
     $this->entityTypeManager = \Drupal::entityTypeManager();
     $maintenance_node = $maintenance_node_id ?
       $this->entityTypeManager->getStorage('node')->load($maintenance_node_id) : '';
-
 
     $form['maintenance_node'] = [
       '#type' => 'entity_autocomplete',

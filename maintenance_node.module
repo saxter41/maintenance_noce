@@ -29,7 +29,7 @@ function maintenance_node_preprocess_maintenance_page(&$variables) {
 }
 
 /**
- * Implements hook_theme_registry_alter
+ * Implements hook_theme_registry_alter.
  */
 function maintenance_node_theme_registry_alter(&$theme_registry) {
   $theme_registry['maintenance_page']['path'] = \Drupal::service('extension.list.module')->getPath('maintenance_node') . '/templates';

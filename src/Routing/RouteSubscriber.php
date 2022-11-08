@@ -10,12 +10,13 @@ use Symfony\Component\Routing\RouteCollection;
  */
 class RouteSubscriber extends RouteSubscriberBase {
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function alterRoutes(RouteCollection $collection) {
-        if ($route = $collection->get('system.site_maintenance_mode'))
-            $route->setDefault('_form', 'Drupal\maintenance_node\Form\MaintenanceNodeForm');
+  /**
+   * {@inheritdoc}
+   */
+  protected function alterRoutes(RouteCollection $collection) {
+    if ($route = $collection->get('system.site_maintenance_mode')) {
+      $route->setDefault('_form', 'Drupal\maintenance_node\Form\MaintenanceNodeForm');
     }
+  }
 
 }
